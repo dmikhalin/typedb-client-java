@@ -88,6 +88,7 @@ deploy_crate(
     target = ":assemble_crate",
 )
 
+# Documentation generation
 rust_doc(
     name = "driver_doc",
     crate = ":typedb_driver",
