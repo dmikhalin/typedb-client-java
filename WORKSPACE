@@ -21,9 +21,9 @@
 
 workspace(name = "vaticle_typedb_driver")
 
-################################
+##############################
 # Load @vaticle_dependencies #
-################################
+##############################
 
 load("//dependencies/vaticle:repositories.bzl", "vaticle_dependencies")
 vaticle_dependencies()
@@ -113,7 +113,7 @@ sonarcloud_dependencies()
 load("@vaticle_dependencies//tool/unuseddeps:deps.bzl", unuseddeps_deps = "deps")
 unuseddeps_deps()
 
-# Load //tool/doc
+# Load //tool/docs
 load("@vaticle_dependencies//tool/doc:deps.bzl", doc_deps = "deps")
 doc_deps()
 load("@vaticle_dependencies_tool_doc//:requirements.bzl", install_doc_deps = "install_deps")
@@ -124,9 +124,9 @@ java_doc_deps()
 load("@google_bazel_common//:workspace_defs.bzl", "google_common_workspace_rules")
 google_common_workspace_rules()
 
-####################################
+#############################
 # Load @com_google_protobuf #
-####################################
+#############################
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 git_repository(
@@ -139,9 +139,9 @@ git_repository(
 load("@com_google_protobuf//:protobuf_deps.bzl", "PROTOBUF_MAVEN_ARTIFACTS", "protobuf_deps")
 protobuf_deps()
 
-######################################
+####################################
 # Load @vaticle_bazel_distribution #
-######################################
+####################################
 
 load("@vaticle_dependencies//distribution:deps.bzl", "vaticle_bazel_distribution")
 vaticle_bazel_distribution()
@@ -174,9 +174,9 @@ pip_parse(
 load("@vaticle_typedb_driver_pip//:requirements.bzl", "install_deps")
 install_deps()
 
-################################
+##############################
 # Load @vaticle dependencies #
-################################
+##############################
 
 # Load repositories
 load("//dependencies/vaticle:repositories.bzl", "vaticle_typedb_common", "vaticle_typeql", "vaticle_typedb_behaviour", "vaticle_typedb_protocol")
@@ -263,9 +263,9 @@ maven(
     vaticle_typedb_driver_java_maven_overrides
 )
 
-############################################
+################################################
 # Create @vaticle_typedb_driver_workspace_refs #
-############################################
+################################################
 load("@vaticle_bazel_distribution//common:rules.bzl", "workspace_refs")
 workspace_refs(
     name = "vaticle_typedb_driver_workspace_refs"
