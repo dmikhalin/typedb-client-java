@@ -144,25 +144,54 @@ class Database(ABC):
 
 
 class Replica(ABC):
+    """
+    The metadata and state of an individual raft replica of a database.
+    """
 
     @abstractmethod
     def database(self) -> Database:
+        """
+        Retrieves the database for which this is a replica
+
+        :return:
+        """
         pass
 
     @abstractmethod
     def address(self) -> str:
+        """
+        Retrieves address of the server hosting this replica
+
+        :return:
+        """
         pass
 
     @abstractmethod
     def is_primary(self) -> bool:
+        """
+        Checks whether this is the primary replica of the raft cluster.
+
+        :return:
+        """
+
         pass
 
     @abstractmethod
     def is_preferred(self) -> bool:
+        """
+        Checks whether this is the preferred replica of the raft cluster.
+        If true, Operations which can be run on any replica will prefer to use this replica.
+
+        :return:
+        """
         pass
 
     @abstractmethod
     def term(self) -> int:
+        """
+        The raft protocol 'term' of this replica.
+        :return:
+        """
         pass
 
 
