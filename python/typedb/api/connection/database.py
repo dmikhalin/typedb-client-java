@@ -190,6 +190,7 @@ class Replica(ABC):
     def term(self) -> int:
         """
         The raft protocol 'term' of this replica.
+
         :return:
         """
         pass

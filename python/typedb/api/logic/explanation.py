@@ -107,6 +107,6 @@ class Explanation(ABC):
         ---------
         ::
 
-            explanation.variable_mapping("x")
+            explanation.variable_mapping(var)
         """
         pass

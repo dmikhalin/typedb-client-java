@@ -79,6 +79,7 @@ class Rule(ABC):
     @abstractmethod
     def delete(self, transaction: TypeDBTransaction) -> None:
         """
+        Deletes this rule.
 
         :param transaction: The current ``Transaction``
         :return:
@@ -94,6 +95,7 @@ class Rule(ABC):
     @abstractmethod
     def is_deleted(self, transaction: TypeDBTransaction) -> bool:
         """
+        Check if this rule has been deleted.
 
         :param transaction: The current ``Transaction``
         :return:
