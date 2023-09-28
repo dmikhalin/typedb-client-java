@@ -46,7 +46,7 @@ class Database(ABC):
         ---------
         ::
 
-            session.database().schema() TODO DOCS: ALL TEH EXAMPLES ARE BROKEN! THE DATABASE FUNCTION NO LONGER EXISTS!
+            database.schema()
         """
         pass
 
@@ -60,7 +60,7 @@ class Database(ABC):
         ---------
         ::
 
-            session.database().rule_schema()
+            database.rule_schema()
         """
         pass
 
@@ -74,7 +74,7 @@ class Database(ABC):
         ---------
         ::
 
-            session.database().type_schema()
+            database.type_schema()
         """
         pass
 
@@ -89,7 +89,7 @@ class Database(ABC):
         ---------
         ::
 
-            session.database().delete()
+            database.delete()
         """
         pass
 
@@ -105,7 +105,7 @@ class Database(ABC):
         ---------
         ::
 
-            session().database().replicas()
+            database.replicas()
         """
         pass
 
@@ -121,14 +121,15 @@ class Database(ABC):
         ---------
         ::
 
-            session().database().primary_replica()
+            database.primary_replica()
         """
         pass
 
     @abstractmethod
     def preferred_replica(self) -> Optional[Replica]:
         """
-        Returns the preferred replica for this database. TODO DOCS
+        Returns the preferred replica for this database.
+        Operations which can be run on any replica will prefer to use this replica.
         *Only works in TypeDB Enterprise*
 
         :return:
@@ -137,7 +138,7 @@ class Database(ABC):
         ---------
         ::
 
-            session().database().preferred_replica()
+            database.preferred_replica()
         """
         pass
 
@@ -169,16 +170,63 @@ class DatabaseManager(ABC):
 
     @abstractmethod
     def get(self, name: str) -> Database:
+        """
+        Retrieve the database with the given name.
+
+        :param name: The name of the database to retrieve
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            driver.databases().get(name)
+        """
         pass
 
     @abstractmethod
     def contains(self, name: str) -> bool:
+        """
+        Checks if a database with the given name exists
+
+        :param name: The database name to be checked
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            driver.databases().contains(name)
+        """
         pass
 
     @abstractmethod
     def create(self, name: str) -> None:
+        """
+        Create a database with the given name
+
+        :param name: The name of the database to be created
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            driver.databases().create(name)
+        """
         pass
 
     @abstractmethod
     def all(self) -> list[Database]:
+        """
+        Retrieves all databases present on the TypeDB server
+
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            driver.databases().all()
+        """
         pass
