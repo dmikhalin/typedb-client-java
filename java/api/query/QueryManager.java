@@ -37,98 +37,500 @@ import com.vaticle.typeql.lang.query.TypeQLUpdate;
 import javax.annotation.CheckReturnValue;
 import java.util.stream.Stream;
 
+/**
+ * Provides methods for executing TypeQL queries in the transaction.
+ */
 public interface QueryManager {
+    /**
+     * Performs a TypeQL Match (Get) query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().match(query)
+     * </pre>
+     *
+     * @param query The TypeQL Match (Get) query to be executed
+     */
     @CheckReturnValue
     Stream<ConceptMap> match(TypeQLMatch query);
 
+    /**
+     * Performs a TypeQL Match (Get) query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().match(query, options)
+     * </pre>
+     *
+     * @param query The TypeQL Match (Get) query to be executed
+     * @param options Specify query options
+     */
     @CheckReturnValue
     Stream<ConceptMap> match(TypeQLMatch query, TypeDBOptions options);
 
+    /**
+     * Performs a TypeQL Match (Get) query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().match(query)
+     * </pre>
+     *
+     * @param query The TypeQL Match (Get) query to be executed
+     */
     @CheckReturnValue
     Stream<ConceptMap> match(String query);
 
+    /**
+     * Performs a TypeQL Match (Get) query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().match(query, options)
+     * </pre>
+     *
+     * @param query The TypeQL Match (Get) query to be executed
+     * @param options Specify query options
+     */
     @CheckReturnValue
     Stream<ConceptMap> match(String query, TypeDBOptions options);
 
+    /**
+     * Performs a TypeQL Match Aggregate query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().matchAggregate(query)
+     * </pre>
+     *
+     * @param query The TypeQL Match Aggregate query to be executed
+     */
     @CheckReturnValue
     Numeric match(TypeQLMatch.Aggregate query);
 
+    /**
+     * Performs a TypeQL Match Aggregate query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().matchAggregate(query, options)
+     * </pre>
+     *
+     * @param query The TypeQL Match Aggregate query to be executed
+     * @param options Specify query options
+     */
     @CheckReturnValue
     Numeric match(TypeQLMatch.Aggregate query, TypeDBOptions options);
 
+    /**
+     * Performs a TypeQL Match Aggregate query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().matchAggregate(query)
+     * </pre>
+     *
+     * @param query The TypeQL Match Aggregate query to be executed
+     */
     @CheckReturnValue
     Numeric matchAggregate(String query);
 
+    /**
+     * Performs a TypeQL Match Aggregate query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().matchAggregate(query, options)
+     * </pre>
+     *
+     * @param query The TypeQL Match Aggregate query to be executed
+     * @param options Specify query options
+     */
     @CheckReturnValue
     Numeric matchAggregate(String query, TypeDBOptions options);
 
+    /**
+     * Performs a TypeQL Match Group query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().matchGroup(query)
+     * </pre>
+     *
+     * @param query The TypeQL Match Group query to be executed
+     */
     @CheckReturnValue
     Stream<ConceptMapGroup> match(TypeQLMatch.Group query);
 
+    /**
+     * Performs a TypeQL Match Group query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().matchGroup(query, options)
+     * </pre>
+     *
+     * @param query The TypeQL Match Group query to be executed
+     * @param options Specify query options
+     */
     @CheckReturnValue
     Stream<ConceptMapGroup> match(TypeQLMatch.Group query, TypeDBOptions options);
 
+    /**
+     * Performs a TypeQL Match Group query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().matchGroup(query)
+     * </pre>
+     *
+     * @param query The TypeQL Match Group query to be executed
+     */
     @CheckReturnValue
     Stream<ConceptMapGroup> matchGroup(String query);
 
+    /**
+     * Performs a TypeQL Match Group query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().matchGroup(query, options)
+     * </pre>
+     *
+     * @param query The TypeQL Match Group query to be executed
+     * @param options Specify query options
+     */
     @CheckReturnValue
     Stream<ConceptMapGroup> matchGroup(String query, TypeDBOptions options);
 
+    /**
+     * Performs a TypeQL Match Group Aggregate query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().matchGroupAggregate(query)
+     * </pre>
+     *
+     * @param query The TypeQL Match Group Aggregate query to be executed
+     */
     @CheckReturnValue
     Stream<NumericGroup> match(TypeQLMatch.Group.Aggregate query);
 
+    /**
+     * Performs a TypeQL Match Group Aggregate query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().matchGroupAggregate(query, options)
+     * </pre>
+     *
+     * @param query The TypeQL Match Group Aggregate query to be executed
+     * @param options Specify query options
+     */
     @CheckReturnValue
     Stream<NumericGroup> match(TypeQLMatch.Group.Aggregate query, TypeDBOptions options);
 
+    /**
+     * Performs a TypeQL Match Group Aggregate query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().matchGroupAggregate(query)
+     * </pre>
+     *
+     * @param query The TypeQL Match Group Aggregate query to be executed
+     */
     @CheckReturnValue
     Stream<NumericGroup> matchGroupAggregate(String query);
 
+    /**
+     * Performs a TypeQL Match Group Aggregate query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().matchGroupAggregate(query, options)
+     * </pre>
+     *
+     * @param query The TypeQL Match Group Aggregate query to be executed
+     * @param options Specify query options
+     */
     @CheckReturnValue
     Stream<NumericGroup> matchGroupAggregate(String query, TypeDBOptions options);
 
+    /**
+     * Performs a TypeQL Insert query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().insert(query)
+     * </pre>
+     *
+     * @param query The TypeQL Insert query to be executed
+     */
     Stream<ConceptMap> insert(TypeQLInsert query);
 
+    /**
+     * Performs a TypeQL Insert query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().insert(query, options)
+     * </pre>
+     *
+     * @param query The TypeQL Insert query to be executed
+     * @param options Specify query options
+     */
     Stream<ConceptMap> insert(TypeQLInsert query, TypeDBOptions options);
 
+    /**
+     * Performs a TypeQL Insert query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().insert(query)
+     * </pre>
+     *
+     * @param query The TypeQL Insert query to be executed
+     */
     Stream<ConceptMap> insert(String query);
 
+    /**
+     * Performs a TypeQL Insert query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().insert(query, options)
+     * </pre>
+     *
+     * @param query The TypeQL Insert query to be executed
+     * @param options Specify query options
+     */
     Stream<ConceptMap> insert(String query, TypeDBOptions options);
 
+    /**
+     * Performs a TypeQL Delete query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().delete(query)
+     * </pre>
+     *
+     * @param query The TypeQL delete query to be executed
+     */
     void delete(TypeQLDelete query);
 
+    /**
+     * Performs a TypeQL Delete query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().delete(query, options)
+     * </pre>
+     *
+     * @param query The TypeQL Delete query to be executed
+     * @param options Specify query options
+     */
     void delete(TypeQLDelete query, TypeDBOptions options);
 
-    void delete(String query);
+    /**
+     * Performs a TypeQL Delete query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().delete(query)
+     * </pre>
+     *
+     * @param query The TypeQL Delete query to be executed
+     */
 
+    void delete(String query);
+    /**
+     * Performs a TypeQL Delete query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().delete(query, options)
+     * </pre>
+     *
+     * @param query The TypeQL Delete query to be executed
+     * @param options Specify query options
+     */
     void delete(String query, TypeDBOptions options);
 
+    /**
+     * Performs a TypeQL Update query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().update(query)
+     * </pre>
+     *
+     * @param query The TypeQL Update query to be executed
+     */
     Stream<ConceptMap> update(TypeQLUpdate query);
 
+    /**
+     * Performs a TypeQL Update query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().update(query, options)
+     * </pre>
+     *
+     * @param query The TypeQL Update query to be executed
+     * @param options Specify query options
+     */
     Stream<ConceptMap> update(TypeQLUpdate query, TypeDBOptions options);
 
+    /**
+     * Performs a TypeQL Update query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().update(query)
+     * </pre>
+     *
+     * @param query The TypeQL Update query to be executed
+     */
     Stream<ConceptMap> update(String query);
 
+    /**
+     * Performs a TypeQL Update query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().update(query, options)
+     * </pre>
+     *
+     * @param query The TypeQL Update query to be executed
+     * @param options Specify query options
+     */
     Stream<ConceptMap> update(String query, TypeDBOptions options);
 
+    /**
+     * Performs a TypeQL Define query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().define(query)
+     * </pre>
+     *
+     * @param query The TypeQL Define query to be executed
+     */
     void define(TypeQLDefine query);
 
+    /**
+     * Performs a TypeQL Define query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().define(query, options)
+     * </pre>
+     *
+     * @param query The TypeQL Define query to be executed
+     * @param options Specify query options
+     */
     void define(TypeQLDefine query, TypeDBOptions options);
 
+    /**
+     * Performs a TypeQL Define query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().define(query)
+     * </pre>
+     *
+     * @param query The TypeQL Define query to be executed
+     */
     void define(String query);
 
+    /**
+     * Performs a TypeQL Define query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().define(query, options)
+     * </pre>
+     *
+     * @param query The TypeQL Define query to be executed
+     * @param options Specify query options
+     */
     void define(String query, TypeDBOptions options);
 
+    /**
+     * Performs a TypeQL Undefine query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().undefine(query)
+     * </pre>
+     *
+     * @param query The TypeQL Undefine query to be executed
+     */
     void undefine(TypeQLUndefine query);
 
+    /**
+     * Performs a TypeQL Undefine query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().undefine(query, options)
+     * </pre>
+     *
+     * @param query The TypeQL Undefine query to be executed
+     * @param options Specify query options
+     */
     void undefine(TypeQLUndefine query, TypeDBOptions options);
 
+    /**
+     * Performs a TypeQL Undefine query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().undefine(query)
+     * </pre>
+     *
+     * @param query The TypeQL Undefine query to be executed
+     */
     void undefine(String query);
 
+    /**
+     * Performs a TypeQL Undefine query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().undefine(query, options)
+     * </pre>
+     *
+     * @param query The TypeQL Undefine query to be executed
+     * @param options Specify query options
+     */
     void undefine(String query, TypeDBOptions options);
 
+    /**
+     * Performs a TypeQL Explain query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().explain(explainable)
+     * </pre>
+     *
+     * @param explainable The Explainable to be explained
+     */
     @CheckReturnValue
     Stream<Explanation> explain(ConceptMap.Explainable explainable);
 
+    /**
+     * Performs a TypeQL Explain query in the transaction.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * transaction.query().explain(explainable, options)
+     * </pre>
+     *
+     * @param explainable The Explainable to be explained
+     * @param options Specify query options
+     */
     @CheckReturnValue
     Stream<Explanation> explain(ConceptMap.Explainable explainable, TypeDBOptions options);
 }
