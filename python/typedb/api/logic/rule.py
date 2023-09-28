@@ -33,26 +33,94 @@ class Rule(ABC):
     @property
     @abstractmethod
     def label(self) -> str:
+        """
+        Retrieves the unique label of the rule.
+
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            rule.get_label()
+        """
         pass
 
     @abstractmethod
     def set_label(self, transaction: TypeDBTransaction, new_label: str) -> None:
+        """
+        Renames the label of the rule. The new label must remain unique.
+
+        :param transaction: The current ``Transaction``
+        :param new_label: The new label to be given to the rule
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            rule.set_label(transaction, new_label)
+        """
         pass
 
     @property
     @abstractmethod
     def when(self) -> str:
+        """
+        Retrieves the statements that constitute the 'when' of the rule.
+
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            rule.get_when()
+        """
         pass
 
     @property
     @abstractmethod
     def then(self) -> str:
+        """
+        Retrieves the single statement that constitutes the 'then' of the rule.
+
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            rule.get_then()
+        """
         pass
 
     @abstractmethod
     def delete(self, transaction: TypeDBTransaction) -> None:
+        """
+
+        :param transaction: The current ``Transaction``
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            rule.delete(transaction)
+        """
         pass
 
     @abstractmethod
     def is_deleted(self, transaction: TypeDBTransaction) -> bool:
+        """
+
+        :param transaction: The current ``Transaction``
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            rule.is_deleted(transaction)
+        """
         pass

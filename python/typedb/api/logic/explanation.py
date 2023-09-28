@@ -33,20 +33,76 @@ class Explanation(ABC):
 
     @abstractmethod
     def rule(self) -> Rule:
+        """
+        Retrieves the Rule for this Explanation.
+
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            explanation.rule()
+        """
         pass
 
     @abstractmethod
     def conclusion(self) -> ConceptMap:
+        """
+        Retrieves the Conclusion for this Explanation.
+
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            explanation.conclusion()
+        """
         pass
 
     @abstractmethod
     def condition(self) -> ConceptMap:
+        """
+        Retrieves the Condition for this Explanation.
+
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            explanation.condition()
+        """
         pass
 
     @abstractmethod
     def query_variables(self) -> set[str]:
+        """
+        Retrieves the query variables for this ``Explanation``.
+
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            explanation.query_variables()
+        """
         pass
 
     @abstractmethod
     def query_variable_mapping(self, var: str) -> set[str]:
+        """
+        Retrieves the rule variables corresponding to the query variable `var` for this ``Explanation``.
+
+        :param var: The query variable to map to rule variables.
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            explanation.variable_mapping("x")
+        """
         pass
