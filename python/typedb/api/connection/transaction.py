@@ -33,6 +33,15 @@ if TYPE_CHECKING:
 
 
 class TransactionType(enum.Enum):
+    """
+    This class is used to specify the type of transaction.
+
+    Examples
+    --------
+    ::
+
+       session.transaction(TransactionType.READ)
+    """
     READ = 0
     WRITE = 1
 

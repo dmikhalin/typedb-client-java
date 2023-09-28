@@ -33,6 +33,15 @@ if TYPE_CHECKING:
 
 
 class SessionType(Enum):
+    """
+    This class is used to specify the type of the session.
+
+    Examples
+    --------
+    ::
+
+       driver.session(database, SessionType.SCHEMA)
+    """
     DATA = Data
     SCHEMA = Schema
 
