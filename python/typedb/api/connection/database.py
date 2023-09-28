@@ -30,32 +30,115 @@ class Database(ABC):
     @property
     @abstractmethod
     def name(self) -> str:
+        """
+        The database name as a string.
+        """
         pass
 
     @abstractmethod
     def schema(self) -> str:
+        """
+        Returns a full schema text as a valid TypeQL define query string.
+
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            session.database().schema() TODO DOCS: ALL TEH EXAMPLES ARE BROKEN! THE DATABASE FUNCTION NO LONGER EXISTS!
+        """
         pass
 
     def rule_schema(self) -> str:
+        """
+        Returns the rules in the schema as a valid TypeQL define query string.
+
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            session.database().rule_schema()
+        """
         pass
 
     def type_schema(self) -> str:
+        """
+        Returns the types in the schema as a valid TypeQL define query string.
+
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            session.database().type_schema()
+        """
         pass
 
     @abstractmethod
     def delete(self) -> None:
+        """
+        Deletes this database.
+
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            session.database().delete()
+        """
         pass
 
     @abstractmethod
     def replicas(self) -> set[Replica]:
+        """
+        Fetches the replicas for the current database
+        *Only works in TypeDB Enterprise*
+
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            session().database().replicas()
+        """
         pass
 
     @abstractmethod
     def primary_replica(self) -> Optional[Replica]:
+        """
+        Returns the primary replica for this database.
+        *Only works in TypeDB Enterprise*
+
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            session().database().primary_replica()
+        """
         pass
 
     @abstractmethod
     def preferred_replica(self) -> Optional[Replica]:
+        """
+        Returns the preferred replica for this database. TODO DOCS
+        *Only works in TypeDB Enterprise*
+
+        :return:
+
+        Examples:
+        ---------
+        ::
+
+            session().database().preferred_replica()
+        """
         pass
 
 
