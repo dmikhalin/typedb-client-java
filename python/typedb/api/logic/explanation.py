@@ -30,6 +30,10 @@ if TYPE_CHECKING:
 
 
 class Explanation(ABC):
+    """
+    An explanation of which rule was used for inferring the explained concept, the condition of the rule,
+    the conclusion of the rule, and the mapping of variables between the query and the rule's conclusion.
+    """
 
     @abstractmethod
     def rule(self) -> Rule:

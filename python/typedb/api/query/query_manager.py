@@ -34,6 +34,9 @@ if TYPE_CHECKING:
 
 
 class QueryManager(ABC):
+    """
+    Provides methods for executing TypeQL queries in the transaction.
+    """
 
     @abstractmethod
     def match(self, query: str, options: Optional[TypeDBOptions] = None) -> Iterator[ConceptMap]:

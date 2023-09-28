@@ -29,6 +29,9 @@ if TYPE_CHECKING:
 
 
 class LogicManager(ABC):
+    """
+    Provides methods for manipulating rules in the database.
+    """
 
     @abstractmethod
     def get_rule(self, label: str) -> Optional[Rule]:

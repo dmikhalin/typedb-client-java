@@ -57,6 +57,9 @@ class User(ABC):
 
 
 class UserManager(ABC):
+    """
+    Provides access to all user management methods.
+    """
 
     @abstractmethod
     def contains(self, username: str) -> bool:

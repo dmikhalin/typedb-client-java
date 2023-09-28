@@ -167,6 +167,9 @@ class Replica(ABC):
 
 
 class DatabaseManager(ABC):
+    """
+    Provides access to all database management methods.
+    """
 
     @abstractmethod
     def get(self, name: str) -> Database:
