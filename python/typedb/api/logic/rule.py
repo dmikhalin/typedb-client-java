@@ -34,15 +34,7 @@ class Rule(ABC):
     @abstractmethod
     def label(self) -> str:
         """
-        Retrieves the unique label of the rule.
-
-        :return:
-
-        Examples:
-        ---------
-        ::
-
-            rule.get_label()
+        The unique label of the rule.
         """
         pass
 
@@ -67,15 +59,7 @@ class Rule(ABC):
     @abstractmethod
     def when(self) -> str:
         """
-        Retrieves the statements that constitute the 'when' of the rule.
-
-        :return:
-
-        Examples:
-        ---------
-        ::
-
-            rule.get_when()
+        The statements that constitute the 'when' of the rule.
         """
         pass
 
@@ -83,15 +67,7 @@ class Rule(ABC):
     @abstractmethod
     def then(self) -> str:
         """
-        Retrieves the single statement that constitutes the 'then' of the rule.
-
-        :return:
-
-        Examples:
-        ---------
-        ::
-
-            rule.get_then()
+        The single statement that constitutes the 'then' of the rule.
         """
         pass
 
