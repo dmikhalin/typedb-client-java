@@ -109,13 +109,62 @@ public interface Thing extends Concept {
         return Json.object().add("type", getType().getLabel().scopedName());
     }
 
+    /**
+     * Retrieves the <code>Attribute</code>s that this <code>Thing</code> owns,
+     * filtered by <code>Annotation</code>s.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * thing.getHas(transaction);
+     * thing.getHas(transaction, attributeType=attributeType, annotations=set(Annotation.key()));
+     * </pre>
+     *
+     * @param transaction The current transaction
+     * @param annotations Only retrieve attributes with all given <code>Annotation</code>s
+     */
     @CheckReturnValue
     Stream<? extends Attribute> getHas(TypeDBTransaction transaction, Set<Annotation> annotations);
 
+    /**
+     * Assigns an <code>Attribute</code> to be owned by this <code>Thing</code>.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * thing.setHas(transaction, attribute);
+     * </pre>
+     *
+     * @param transaction The current transaction
+     * @param attribute The <code>Attribute</code> to be owned by this <code>Thing</code>.
+     */
     void setHas(TypeDBTransaction transaction, Attribute attribute);
 
+    /**
+     * Unassigns an <code>Attribute</code> from this <code>Thing</code>.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * thing.unsetHas(transaction, attribute);
+     * </pre>
+     *
+     * @param transaction The current transaction
+     * @param attribute The <code>Attribute</code> to be disowned from this <code>Thing</code>.
+     */
     void unsetHas(TypeDBTransaction transaction, Attribute attribute);
 
+    /**
+     * Retrieves the <code>Attribute</code>s that this <code>Thing</code> owns,
+     * optionally filtered by <code>AttributeType</code>s.
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * thing.getHas(transaction)
+     thing.getHas(transaction, attributeType=attributeType,
+     annotations=set(Annotation.key()))
+     * </pre>
+     *
+     * @param transaction The current transaction
+     * @param attributeTypes The <code>AttributeType</code>s to filter the attributes by
+     */
     @CheckReturnValue
     Stream<? extends Attribute> getHas(TypeDBTransaction transaction, AttributeType... attributeTypes);
 
