@@ -33,7 +33,7 @@ class TypeDBCredential(NativeWrapper[NativeCredential]):
 
     :param username: The name of the user to connect as
     :param password: The password for the user
-    :param tls_root_ca_path: If self-signed certificates are used, path to the CA certificate which establishes trust.
+    :param tls_root_ca_path: Path to the CA certificate to use for authenticating server certificates.
     :param tls_enabled: Specify whether the connection to TypeDB Enterprise must be done over TLS
 
     Examples:
@@ -43,7 +43,7 @@ class TypeDBCredential(NativeWrapper[NativeCredential]):
         # Creates a credential using the specified username and password. Specifies that TLS must be used.
         credential = TypeDBCredential(username, password)
 
-        # As above, but specifies the CA certificate to use for validating the signature on the server's certificates.
+        # Creates a credential as above, but TLS will use the specified CA to authenticate server certificates.
         credential = TypeDBCredential(username, password, tls_root_ca_path="path/to/ca-certificate.pem")
     """
 
