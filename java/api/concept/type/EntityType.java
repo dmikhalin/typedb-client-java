@@ -92,12 +92,7 @@ public interface EntityType extends ThingType {
      * Retrieves all (direct and indirect) subtypes of the <code>EntityType</code>.
      * Equivalent to <code>getSubtypes(transaction, Transitivity.TRANSITIVE)</code>
      *
-     * <h3>Examples</h3>
-     * <pre>
-     * entityType.getSubtypes(transaction);
-     * </pre>
-     *
-     * @param transaction The current transaction
+     * @see EntityType#getSubtypes(TypeDBTransaction, Transitivity)
      */
     @Override
     @CheckReturnValue
