@@ -32,12 +32,7 @@ import java.util.stream.Stream;
  */
 public interface EntityType extends ThingType {
     /**
-     * Checks if the concept is an <code>EntityType</code>.
-     *
-     * <h3>Examples</h3>
-     * <pre>
-     * entityType.isEntityType();
-     * </pre>
+     * {@inheritDoc}
      */
     @Override
     @CheckReturnValue
@@ -46,12 +41,7 @@ public interface EntityType extends ThingType {
     }
 
     /**
-     * Casts the concept to <code>EntityType</code>.
-     *
-     * <h3>Examples</h3>
-     * <pre>
-     * entityType.asEntityType();
-     * </pre>
+     * {@inheritDoc}
      */
     @Override
     @CheckReturnValue
@@ -81,7 +71,6 @@ public interface EntityType extends ThingType {
     @Override
     @CheckReturnValue
     Stream<? extends Entity> getInstances(TypeDBTransaction transaction);
-
 
     /**
      * Retrieves <code>Entity</code> objects that are instances of this exact <code>EntityType</code> OR

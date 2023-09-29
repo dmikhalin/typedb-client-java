@@ -29,12 +29,18 @@ import javax.annotation.CheckReturnValue;
 import java.util.stream.Stream;
 
 public interface RoleType extends Type {
+    /**
+     * {@inheritDoc}
+     */
     @Override
     @CheckReturnValue
     default boolean isRoleType() {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     @CheckReturnValue
     default RoleType asRoleType() {
