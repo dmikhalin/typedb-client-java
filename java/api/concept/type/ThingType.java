@@ -239,7 +239,7 @@ public interface ThingType extends Type {
      * Retrieves <code>AttributeType</code> that the instances of this
      * <code>ThingType</code> are allowed to own directly or via inheritance.
      *
-     * @see ThingType#getOwns(TypeDBTransaction, Value.Type, Set, Transitivity);
+     * @see ThingType#getOwns(TypeDBTransaction, Value.Type, Set, Transitivity)
      */
     @CheckReturnValue
     Stream<? extends AttributeType> getOwns(TypeDBTransaction transaction);
@@ -248,7 +248,7 @@ public interface ThingType extends Type {
      * Retrieves <code>AttributeType</code> that the instances of this
      * <code>ThingType</code> are allowed to own directly or via inheritance.
      *
-     * @see ThingType#getOwns(TypeDBTransaction, Value.Type, Set, Transitivity);
+     * @see ThingType#getOwns(TypeDBTransaction, Value.Type, Set, Transitivity)
      */
     @CheckReturnValue
     Stream<? extends AttributeType> getOwns(TypeDBTransaction transaction, Value.Type valueType);
@@ -257,7 +257,7 @@ public interface ThingType extends Type {
      * Retrieves <code>AttributeType</code> that the instances of this
      * <code>ThingType</code> are allowed to own directly or via inheritance.
      *
-     * @see ThingType#getOwns(TypeDBTransaction, Value.Type, Set, Transitivity);
+     * @see ThingType#getOwns(TypeDBTransaction, Value.Type, Set, Transitivity)
      */
     @CheckReturnValue
     Stream<? extends AttributeType> getOwns(TypeDBTransaction transaction, Set<Annotation> annotations);
@@ -266,7 +266,7 @@ public interface ThingType extends Type {
      * Retrieves <code>AttributeType</code> that the instances of this
      * <code>ThingType</code> are allowed to own directly or via inheritance.
      *
-     * @see ThingType#getOwns(TypeDBTransaction, Value.Type, Set, Transitivity);
+     * @see ThingType#getOwns(TypeDBTransaction, Value.Type, Set, Transitivity)
      */
     @CheckReturnValue
     Stream<? extends AttributeType> getOwns(TypeDBTransaction transaction, Value.Type valueType, Set<Annotation> annotations);
@@ -275,7 +275,7 @@ public interface ThingType extends Type {
      * Retrieves <code>AttributeType</code> that the instances of this
      * <code>ThingType</code> are allowed to own directly or via inheritance.
      *
-     * @see ThingType#getOwns(TypeDBTransaction, Value.Type, Set, Transitivity);
+     * @see ThingType#getOwns(TypeDBTransaction, Value.Type, Set, Transitivity)
      */
     @CheckReturnValue
     Stream<? extends AttributeType> getOwns(TypeDBTransaction transaction, Transitivity transitivity);
@@ -284,7 +284,7 @@ public interface ThingType extends Type {
      * Retrieves <code>AttributeType</code> that the instances of this
      * <code>ThingType</code> are allowed to own directly or via inheritance.
      *
-     * @see ThingType#getOwns(TypeDBTransaction, Value.Type, Set, Transitivity);
+     * @see ThingType#getOwns(TypeDBTransaction, Value.Type, Set, Transitivity)
      */
     @CheckReturnValue
     Stream<? extends AttributeType> getOwns(TypeDBTransaction transaction, Value.Type valueType, Transitivity transitivity);
@@ -293,7 +293,7 @@ public interface ThingType extends Type {
      * Retrieves <code>AttributeType</code> that the instances of this
      * <code>ThingType</code> are allowed to own directly or via inheritance.
      *
-     * @see ThingType#getOwns(TypeDBTransaction, Value.Type, Set, Transitivity);
+     * @see ThingType#getOwns(TypeDBTransaction, Value.Type, Set, Transitivity)
      */
     @CheckReturnValue
     Stream<? extends AttributeType> getOwns(TypeDBTransaction transaction, Set<Annotation> annotations, Transitivity transitivity);

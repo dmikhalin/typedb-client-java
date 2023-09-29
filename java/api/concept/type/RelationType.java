@@ -69,7 +69,7 @@ public interface RelationType extends ThingType {
      * Retrieves all <code>Relation</code> objects that are instances of this <code>RelationType</code> or its subtypes.
      * Equivalent to <code>getInstances(transaction, Transitivity.TRANSITIVE)</code>
      *
-     * @see RelationType#getInstances(TypeDBTransaction, Transitivity);
+     * @see RelationType#getInstances(TypeDBTransaction, Transitivity)
      */
     @Override
     @CheckReturnValue
@@ -182,7 +182,7 @@ public interface RelationType extends ThingType {
     /**
      * Disallows this <code>RelationType</code> from relating to the given role.
      *
-     * @see RelationType#unsetRelates(TypeDBTransaction, String);
+     * @see RelationType#unsetRelates(TypeDBTransaction, String)
      */
     void unsetRelates(TypeDBTransaction transaction, RoleType roleType);
 
