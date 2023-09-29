@@ -96,7 +96,7 @@ class Database(ABC):
     @abstractmethod
     def replicas(self) -> set[Replica]:
         """
-        Fetches the replicas for the current database
+        Set of ``Replica`` instances for this database.
         *Only works in TypeDB Enterprise*
 
         :return:

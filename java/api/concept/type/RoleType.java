@@ -28,6 +28,10 @@ import com.vaticle.typedb.driver.api.concept.thing.Thing;
 import javax.annotation.CheckReturnValue;
 import java.util.stream.Stream;
 
+/**
+ * Roles are special internal types used by relations. We can not create an instance of a role in a database. But we can set an instance of another type (role player) to play a role in a particular instance of a relation type.
+ * Roles allow a schema to enforce logical constraints on types of role players.
+ */
 public interface RoleType extends Type {
     /**
      * {@inheritDoc}

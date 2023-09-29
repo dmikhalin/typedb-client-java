@@ -44,7 +44,6 @@ public interface Database {
     @CheckReturnValue
     String schema();
 
-
     /**
      * The types in the schema as a valid TypeQL define query string.
      *
@@ -78,10 +77,8 @@ public interface Database {
     void delete();
 
     /**
-     * Fetches the replicas for the current database.
-     * <b>Only works in TypeDB Enterprise</b>
-     *
      * Set of <code>Replica</code> instances for this database.
+     * <b>Only works in TypeDB Enterprise</b>
      *
      * <h3>Examples</h3>
      * <pre>
@@ -91,9 +88,27 @@ public interface Database {
     @CheckReturnValue
     Set<? extends Replica> replicas();
 
+    /**
+     * Returns the primary replica for this database.
+     * _Only works in TypeDB Enterprise_
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * database.primaryReplica()
+     * </pre>
+     */
     @CheckReturnValue
     Optional<? extends Replica> primaryReplica();
 
+    /**
+     * Returns the preferred replica for this database. Operations which can be run on any replica will prefer to use this replica.
+     * _Only works in TypeDB Enterprise_
+     *
+     * <h3>Examples</h3>
+     * <pre>
+     * database.preferredReplica()
+     * </pre>
+     */
     @CheckReturnValue
     Optional<? extends Replica> preferredReplica();
 
