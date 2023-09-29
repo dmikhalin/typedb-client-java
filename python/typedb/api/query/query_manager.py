@@ -51,7 +51,7 @@ class QueryManager(ABC):
         --------
         ::
 
-            transaction.query().match(query, options)
+            transaction.query.match(query, options)
         """
         pass
 
@@ -68,7 +68,7 @@ class QueryManager(ABC):
         --------
         ::
 
-            transaction.query().match_aggregate(query, options)
+            transaction.query.match_aggregate(query, options)
         """
         pass
 
@@ -85,7 +85,7 @@ class QueryManager(ABC):
         --------
         ::
 
-             transaction.query().match_group(query, options)
+             transaction.query.match_group(query, options)
         """
         pass
 
@@ -102,7 +102,7 @@ class QueryManager(ABC):
         --------
         ::
 
-            transaction.query().match_group_aggregate(query, options)
+            transaction.query.match_group_aggregate(query, options)
         """
         pass
 
@@ -119,7 +119,7 @@ class QueryManager(ABC):
         --------
         ::
 
-            transaction.query().insert(query, options)
+            transaction.query.insert(query, options)
         """
         pass
 
@@ -136,7 +136,7 @@ class QueryManager(ABC):
         --------
         ::
 
-            transaction.query().delete(query, options)
+            transaction.query.delete(query, options)
         """
         pass
 
@@ -153,7 +153,7 @@ class QueryManager(ABC):
         --------
         ::
 
-            transaction.query().define(query, options)
+            transaction.query.define(query, options)
         """
         pass
 
@@ -170,7 +170,7 @@ class QueryManager(ABC):
         --------
         ::
 
-            transaction.query().undefine(query, options)
+            transaction.query.undefine(query, options)
         """
         pass
 
@@ -187,7 +187,7 @@ class QueryManager(ABC):
         --------
         ::
 
-            transaction.query().update(query, options)
+            transaction.query.update(query, options)
         """
         pass
 
@@ -206,6 +206,6 @@ class QueryManager(ABC):
         --------
         ::
 
-            transaction.query().explain(explainable, options)
+            transaction.query.explain(explainable, options)
         """
         pass

@@ -73,7 +73,7 @@ class UserManager(ABC):
         ---------
         ::
 
-           driver.users().contains(username)
+           driver.users.contains(username)
         """
         pass
 
@@ -90,7 +90,7 @@ class UserManager(ABC):
         ---------
         ::
 
-           driver.users().create(username, password)
+           driver.users.create(username, password)
         """
         pass
 
@@ -106,7 +106,7 @@ class UserManager(ABC):
         ---------
         ::
 
-           driver.users().delete(username)
+           driver.users.delete(username)
         """
         pass
 
@@ -122,7 +122,7 @@ class UserManager(ABC):
         ---------
         ::
 
-           driver.users().get(username)
+           driver.users.get(username)
         """
         pass
 
@@ -137,7 +137,7 @@ class UserManager(ABC):
         ---------
         ::
 
-           driver.users().all()
+           driver.users.all()
 
         """
         pass
@@ -155,6 +155,6 @@ class UserManager(ABC):
         ---------
         ::
 
-           driver.users().password_set(username, password)
+           driver.users.password_set(username, password)
         """
         pass

@@ -45,7 +45,7 @@ class LogicManager(ABC):
         ---------
         ::
 
-            transaction.logic().get_rule(label)
+            transaction.logic.get_rule(label)
         """
         pass
 
@@ -60,7 +60,7 @@ class LogicManager(ABC):
         ---------
         ::
 
-            transaction.logic().get_rules()
+            transaction.logic.get_rules()
         """
         pass
 
@@ -78,6 +78,6 @@ class LogicManager(ABC):
         ---------
         ::
 
-            transaction.logic().put_rule(label, when, then)
+            transaction.logic.put_rule(label, when, then)
         """
         pass
