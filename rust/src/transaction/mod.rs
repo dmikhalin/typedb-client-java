@@ -109,6 +109,13 @@ impl Transaction<'_> {
         self.transaction_stream.on_close(callback)
     }
 
+    /// Closes the transaction.
+    ///
+    /// # Examples
+    ///
+    /// ```rust
+    /// transaction.force_close()
+    /// ```
     pub fn force_close(&self) {
         self.transaction_stream.force_close();
     }
