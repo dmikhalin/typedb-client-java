@@ -57,8 +57,8 @@ impl QueryManager {
     /// # Examples
     ///
     /// ```rust
-    #[cfg_attr(feature = "sync", doc = "transaction.query.define_with_options(query, options)")]
-    #[cfg_attr(not(feature = "sync"), doc = "transaction.query.define_with_options(query, options).await")]
+    #[cfg_attr(feature = "sync", doc = "transaction.query().define_with_options(query, options)")]
+    #[cfg_attr(not(feature = "sync"), doc = "transaction.query().define_with_options(query, options).await")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     pub async fn define_with_options(&self, query: &str, options: Options) -> Result {
@@ -82,8 +82,8 @@ impl QueryManager {
     /// # Examples
     ///
     /// ```rust
-    #[cfg_attr(feature = "sync", doc = "transaction.query.undefine_with_options(query, options)")]
-    #[cfg_attr(not(feature = "sync"), doc = "transaction.query.undefine_with_options(query, options).await")]
+    #[cfg_attr(feature = "sync", doc = "transaction.query().undefine_with_options(query, options)")]
+    #[cfg_attr(not(feature = "sync"), doc = "transaction.query().undefine_with_options(query, options).await")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     pub async fn undefine_with_options(&self, query: &str, options: Options) -> Result {
@@ -107,8 +107,8 @@ impl QueryManager {
     /// # Examples
     ///
     /// ```rust
-    #[cfg_attr(feature = "sync", doc = "transaction.query.delete_with_options(query, options)")]
-    #[cfg_attr(not(feature = "sync"), doc = "transaction.query.delete_with_options(query, options).await")]
+    #[cfg_attr(feature = "sync", doc = "transaction.query().delete_with_options(query, options)")]
+    #[cfg_attr(not(feature = "sync"), doc = "transaction.query().delete_with_options(query, options).await")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     pub async fn delete_with_options(&self, query: &str, options: Options) -> Result {
@@ -131,7 +131,7 @@ impl QueryManager {
     /// # Examples
     ///
     /// ```rust
-    /// transaction.query.match_with_options(query, options)
+    /// transaction.query().match_with_options(query, options)
     /// ```
     pub fn match_with_options(&self, query: &str, options: Options) -> Result<impl Stream<Item = Result<ConceptMap>>> {
         self.transaction_stream.match_(query.to_string(), options)
@@ -153,7 +153,7 @@ impl QueryManager {
     /// # Examples
     ///
     /// ```rust
-    /// transaction.query.insert_with_options(query, options)
+    /// transaction.query().insert_with_options(query, options)
     /// ```
     pub fn insert_with_options(&self, query: &str, options: Options) -> Result<impl Stream<Item = Result<ConceptMap>>> {
         self.transaction_stream.insert(query.to_string(), options)
@@ -175,7 +175,7 @@ impl QueryManager {
     /// # Examples
     ///
     /// ```rust
-    /// transaction.query.update_with_options(query, options)
+    /// transaction.query().update_with_options(query, options)
     /// ```
     pub fn update_with_options(&self, query: &str, options: Options) -> Result<impl Stream<Item = Result<ConceptMap>>> {
         self.transaction_stream.update(query.to_string(), options)
@@ -198,8 +198,8 @@ impl QueryManager {
     /// # Examples
     ///
     /// ```rust
-    #[cfg_attr(feature = "sync", doc = "transaction.query.match_aggregate_with_options(query, options)")]
-    #[cfg_attr(not(feature = "sync"), doc = "transaction.query.match_aggregate_with_options(query, options).await")]
+    #[cfg_attr(feature = "sync", doc = "transaction.query().match_aggregate_with_options(query, options)")]
+    #[cfg_attr(not(feature = "sync"), doc = "transaction.query().match_aggregate_with_options(query, options).await")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     pub async fn match_aggregate_with_options(&self, query: &str, options: Options) -> Result<Numeric> {
@@ -222,7 +222,7 @@ impl QueryManager {
     /// # Examples
     ///
     /// ```rust
-    /// transaction.query.match_group_with_options(query, options)
+    /// transaction.query().match_group_with_options(query, options)
     /// ```
     pub fn match_group_with_options(
         &self,
@@ -248,7 +248,7 @@ impl QueryManager {
     /// # Examples
     ///
     /// ```rust
-    /// transaction.query.match_group_aggregate(query, options)
+    /// transaction.query().match_group_aggregate(query, options)
     /// ```
     pub fn match_group_aggregate_with_options(
         &self,
@@ -274,7 +274,7 @@ impl QueryManager {
     /// # Examples
     ///
     /// ```rust
-    /// transaction.query.explain_with_options(explainable, options)
+    /// transaction.query().explain_with_options(explainable, options)
     /// ```
     pub fn explain_with_options(
         &self,
