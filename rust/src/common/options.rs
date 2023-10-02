@@ -21,6 +21,15 @@
 
 use std::time::Duration;
 
+/// TypeDB session and transaction options.
+/// `TypeDBOptions` object can be used to override the default server behaviour query processing.
+/// Options are specified using properties assignment.
+///
+/// # Examples
+///
+/// ```rust
+/// let options = Options::new().infer(true).explain(true);
+/// ```
 #[derive(Clone, Debug, Default)]
 pub struct Options {
     /// If set to `True`, enables inference for queries. Only settable at transaction level and above. Only affects read transactions.

@@ -29,6 +29,7 @@ use crate::{
     logic::Rule,
 };
 
+/// Provides methods for manipulating rules in the database.
 #[derive(Clone, Debug)]
 pub struct LogicManager {
     pub(super) transaction_stream: Arc<TransactionStream>,

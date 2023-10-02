@@ -28,6 +28,7 @@ use crate::{
     Result,
 };
 
+/// Provides access for all Concept API methods.
 #[derive(Debug)]
 pub struct ConceptManager {
     pub(super) transaction_stream: Arc<TransactionStream>,

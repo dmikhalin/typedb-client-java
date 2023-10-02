@@ -166,7 +166,7 @@ pub trait ThingTypeAPI: Sync + Send {
     /// # Examples
     ///
     /// ```rust
-    /// thing_type.get_owns(transaction, value_type, transitivity, annotations)
+    /// thing_type.get_owns(transaction, Some(value_type), transitivity, annotations)
     /// ```
     fn get_owns(
         &self,
@@ -222,6 +222,7 @@ pub trait ThingTypeAPI: Sync + Send {
     ///
     /// ```rust
     /// thing_type.set_owns(transaction, attribute_type, overridden_attribute_type, annotations).await
+    /// thing_type.set_owns(transaction, attribute_type, None, annotations).await
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     async fn set_owns(
@@ -321,7 +322,8 @@ pub trait ThingTypeAPI: Sync + Send {
     /// # Examples
     ///
     /// ```rust
-    /// thing_type.set_plays(transaction, role_type, overridden_role_type)
+    /// thing_type.set_plays(transaction, role_type, None)
+    /// thing_type.set_plays(transaction, role_type, Some(overridden_role_type))
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     async fn set_plays(

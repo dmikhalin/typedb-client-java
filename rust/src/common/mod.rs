@@ -50,7 +50,6 @@ pub(crate) type SessionID = id::ID;
 /// ```rust
 /// Session::new(database, SessionType::Schema).await
 /// ```
-/// TODO DOCS
 #[repr(C)]
 #[derive(Copy, Clone, Debug, Eq, PartialEq)]
 pub enum SessionType {

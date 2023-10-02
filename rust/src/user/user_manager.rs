@@ -24,6 +24,7 @@ use std::future::Future;
 
 use crate::{common::Result, connection::ServerConnection, Connection, DatabaseManager, User};
 
+/// Provides access to all user management methods.
 #[derive(Clone, Debug)]
 pub struct UserManager {
     // FIXME: currently required to be `pub` because we refer to it in bindings and over FFI

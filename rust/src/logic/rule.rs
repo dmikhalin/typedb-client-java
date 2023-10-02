@@ -21,6 +21,9 @@
 
 use typeql_lang::pattern::{Conjunction, ThingVariable};
 
+/// Rules are a part of schema and define embedded logic.
+/// The reasoning engine uses rules as a set of logic to infer new data.
+/// A rule consists of a condition and a conclusion, and is uniquely identified by a label.
 #[derive(Clone, Debug, PartialEq)]
 pub struct Rule {
     /// The unique label of the rule.

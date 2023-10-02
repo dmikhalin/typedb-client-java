@@ -29,6 +29,7 @@ use crate::{
     Options,
 };
 
+/// Provides methods for executing TypeQL queries in the transaction.
 #[derive(Debug)]
 pub struct QueryManager {
     transaction_stream: Arc<TransactionStream>,

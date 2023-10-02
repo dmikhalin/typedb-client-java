@@ -22,11 +22,10 @@
 use crate::{common::Result, error::ConnectionError, Connection};
 
 #[derive(Clone, Debug)]
-/// `User` class
+/// User information
 pub struct User {
     /// Returns the name of this user.
     pub username: String,
-
     /// Returns the number of seconds remaining till this user’s current password expires.
     pub password_expiry_seconds: Option<i64>,
 }
