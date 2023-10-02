@@ -599,7 +599,8 @@ pub trait RelationTypeAPI: ThingTypeAPI + Clone + Into<RelationType> {
     /// # Examples
     ///
     /// ```rust
-    /// relation_type.create(transaction).await
+    #[cfg_attr(feature = "sync", doc = "relation_type.create(transaction);")]
+    #[cfg_attr(not(feature = "sync"), doc = "relation_type.create(transaction).await;")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     async fn create(&self, transaction: &Transaction<'_>) -> Result<Relation> {
@@ -615,7 +616,8 @@ pub trait RelationTypeAPI: ThingTypeAPI + Clone + Into<RelationType> {
     /// # Examples
     ///
     /// ```rust
-    /// relation_type.get_supertype(transaction).await
+    #[cfg_attr(feature = "sync", doc = "relation_type.get_supertype(transaction);")]
+    #[cfg_attr(not(feature = "sync"), doc = "relation_type.get_supertype(transaction).await;")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     async fn get_supertype(&self, transaction: &Transaction<'_>) -> Result<RelationType> {
@@ -632,7 +634,8 @@ pub trait RelationTypeAPI: ThingTypeAPI + Clone + Into<RelationType> {
     /// # Examples
     ///
     /// ```rust
-    /// relation_type.set_supertype(transaction, supertype).await
+    #[cfg_attr(feature = "sync", doc = "relation_type.set_supertype(transaction, super_relation_type);")]
+    #[cfg_attr(not(feature = "sync"), doc = "relation_type.set_supertype(transaction, super_relation_type).await;")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     async fn set_supertype(&mut self, transaction: &Transaction<'_>, supertype: RelationType) -> Result {
@@ -648,7 +651,8 @@ pub trait RelationTypeAPI: ThingTypeAPI + Clone + Into<RelationType> {
     /// # Examples
     ///
     /// ```rust
-    /// relation_type.get_supertypes(transaction)
+    #[cfg_attr(feature = "sync", doc = "relation_type.get_supertypes(transaction);")]
+    #[cfg_attr(not(feature = "sync"), doc = "relation_type.get_supertypes(transaction).await;")]
     /// ```
     fn get_supertypes(&self, transaction: &Transaction<'_>) -> Result<BoxStream<Result<RelationType>>> {
         transaction.concept().transaction_stream.relation_type_get_supertypes(self.clone().into()).map(box_stream)
@@ -665,7 +669,8 @@ pub trait RelationTypeAPI: ThingTypeAPI + Clone + Into<RelationType> {
     /// # Examples
     ///
     /// ```rust
-    /// relation_type.get_subtypes(transaction, transitivity)
+    #[cfg_attr(feature = "sync", doc = "relation_type.get_subtypes(transaction, Transivity::Transitive);")]
+    #[cfg_attr(not(feature = "sync"), doc = "relation_type.get_subtypes(transaction, Transivity::Transitive).await;")]
     /// ```
     fn get_subtypes(
         &self,
@@ -691,7 +696,8 @@ pub trait RelationTypeAPI: ThingTypeAPI + Clone + Into<RelationType> {
     /// # Examples
     ///
     /// ```rust
-    /// relation_type.get_instances(transaction, transitivity)
+    #[cfg_attr(feature = "sync", doc = "relation_type.get_instances(transaction, Transitivity::Explicit);")]
+    #[cfg_attr(not(feature = "sync"), doc = "relation_type.get_instances(transaction, Transitivity::Explicit).await;")]
     /// ```
     fn get_instances(
         &self,
@@ -716,7 +722,8 @@ pub trait RelationTypeAPI: ThingTypeAPI + Clone + Into<RelationType> {
     /// # Examples
     ///
     /// ```rust
-    /// relation_type.get_relates(transaction, transitivity)
+    #[cfg_attr(feature = "sync", doc = "relation_type.get_relates(transaction, Transitivity::Transitive);")]
+    #[cfg_attr(not(feature = "sync"), doc = "relation_type.get_relates(transaction, Transitivity::Transitive).await;")]
     /// ```
     fn get_relates(
         &self,
@@ -740,7 +747,8 @@ pub trait RelationTypeAPI: ThingTypeAPI + Clone + Into<RelationType> {
     /// # Examples
     ///
     /// ```rust
-    /// relation_type.get_relates_for_role_label(transaction, role_label).await
+    #[cfg_attr(feature = "sync", doc = "relation_type.get_relates_for_role_label(transaction, role_label);")]
+    #[cfg_attr(not(feature = "sync"), doc = "relation_type.get_relates_for_role_label(transaction, role_label).await;")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     async fn get_relates_for_role_label(
@@ -765,7 +773,8 @@ pub trait RelationTypeAPI: ThingTypeAPI + Clone + Into<RelationType> {
     /// # Examples
     ///
     /// ```rust
-    /// relation_type.get_relates_overridden(transaction, overridden_role_label).await
+    #[cfg_attr(feature = "sync", doc = "relation_type.get_relates_overridden(transaction, overridden_role_label);")]
+    #[cfg_attr(not(feature = "sync"), doc = "relation_type.get_relates_overridden(transaction, overridden_role_label).await;")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     async fn get_relates_overridden(
@@ -792,7 +801,8 @@ pub trait RelationTypeAPI: ThingTypeAPI + Clone + Into<RelationType> {
     /// # Examples
     ///
     /// ```rust
-    /// relation_type.set_relates(transaction, role_label, overridden_role_label).await
+    #[cfg_attr(feature = "sync", doc = "relation_type.set_relates(transaction, role_label, None);")]
+    #[cfg_attr(not(feature = "sync"), doc = "relation_type.set_relates(transaction, role_label, None).await;")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     async fn set_relates(
@@ -818,7 +828,8 @@ pub trait RelationTypeAPI: ThingTypeAPI + Clone + Into<RelationType> {
     /// # Examples
     ///
     /// ```rust
-    /// relation_type.unset_relates(transaction, role_label).await
+    #[cfg_attr(feature = "sync", doc = "relation_type.unset_relates(transaction, role_label);")]
+    #[cfg_attr(not(feature = "sync"), doc = "relation_type.unset_relates(transaction, role_label).await;")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     async fn unset_relates(&mut self, transaction: &Transaction<'_>, role_label: String) -> Result {
@@ -879,7 +890,8 @@ pub trait AttributeTypeAPI: ThingTypeAPI + Clone + Into<AttributeType> {
     /// # Examples
     ///
     /// ```rust
-    /// attribute_type.put(transaction, value).await
+    #[cfg_attr(feature = "sync", doc = "attribute = attribute_type.put(transaction, value);")]
+    #[cfg_attr(not(feature = "sync"), doc = "attribute = attribute_type.put(transaction, value).await;")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     async fn put(&self, transaction: &Transaction<'_>, value: Value) -> Result<Attribute> {
@@ -897,7 +909,8 @@ pub trait AttributeTypeAPI: ThingTypeAPI + Clone + Into<AttributeType> {
     /// # Examples
     ///
     /// ```rust
-    /// attribute_type.get(transaction, value)
+    #[cfg_attr(feature = "sync", doc = "attribute = attribute_type.get(transaction, value);")]
+    #[cfg_attr(not(feature = "sync"), doc = "attribute = attribute_type.get(transaction, value).await;")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     async fn get(&self, transaction: &Transaction<'_>, value: Value) -> Result<Option<Attribute>> {
@@ -913,7 +926,8 @@ pub trait AttributeTypeAPI: ThingTypeAPI + Clone + Into<AttributeType> {
     /// # Examples
     ///
     /// ```rust
-    /// attribute_type.get_supertype(transaction).await
+    #[cfg_attr(feature = "sync", doc = "attribute_type.get_supertype(transaction);")]
+    #[cfg_attr(not(feature = "sync"), doc = "attribute_type.get_supertype(transaction).await;")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     async fn get_supertype(&self, transaction: &Transaction<'_>) -> Result<AttributeType> {
@@ -930,7 +944,8 @@ pub trait AttributeTypeAPI: ThingTypeAPI + Clone + Into<AttributeType> {
     /// # Examples
     ///
     /// ```rust
-    /// attribute_type.set_supertype(transaction, supertype).await
+    #[cfg_attr(feature = "sync", doc = "attribute_type.set_supertype(transaction, supertype);")]
+    #[cfg_attr(not(feature = "sync"), doc = "attribute_type.set_supertype(transaction, supertype).await;")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     async fn set_supertype(&mut self, transaction: &Transaction<'_>, supertype: AttributeType) -> Result {
@@ -1041,7 +1056,8 @@ pub trait AttributeTypeAPI: ThingTypeAPI + Clone + Into<AttributeType> {
     /// # Examples
     ///
     /// ```rust
-    /// attribute_type.get_regex(transaction).await
+    #[cfg_attr(feature = "sync", doc = "attribute_type.get_regex(transaction);")]
+    #[cfg_attr(not(feature = "sync"), doc = "attribute_type.get_regex(transaction).await;")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     async fn get_regex(&self, transaction: &Transaction<'_>) -> Result<Option<String>> {
@@ -1061,7 +1077,8 @@ pub trait AttributeTypeAPI: ThingTypeAPI + Clone + Into<AttributeType> {
     /// # Examples
     ///
     /// ```rust
-    /// attribute_type.set_regex(transaction, regex).await
+    #[cfg_attr(feature = "sync", doc = "attribute_type.set_regex(transaction, regex);")]
+    #[cfg_attr(not(feature = "sync"), doc = "attribute_type.set_regex(transaction, regex).await;")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     async fn set_regex(&self, transaction: &Transaction<'_>, regex: String) -> Result {
@@ -1077,7 +1094,8 @@ pub trait AttributeTypeAPI: ThingTypeAPI + Clone + Into<AttributeType> {
     /// # Examples
     ///
     /// ```rust
-    /// attribute_type.unset_regex(transaction).await
+    #[cfg_attr(feature = "sync", doc = "attribute_type.unset_regex(transaction);")]
+    #[cfg_attr(not(feature = "sync"), doc = "attribute_type.unset_regex(transaction).await;")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     async fn unset_regex(&self, transaction: &Transaction<'_>) -> Result {
@@ -1141,7 +1159,8 @@ pub trait RoleTypeAPI: Clone + Into<RoleType> + Sync + Send {
     /// # Examples
     ///
     /// ```rust
-    /// role_type.delete(transaction).await
+    #[cfg_attr(feature = "sync", doc = "role_type.delete(transaction);")]
+    #[cfg_attr(not(feature = "sync"), doc = "role_type.delete(transaction).await;")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     async fn delete(&self, transaction: &Transaction<'_>) -> Result {
@@ -1157,7 +1176,8 @@ pub trait RoleTypeAPI: Clone + Into<RoleType> + Sync + Send {
     /// # Examples
     ///
     /// ```rust
-    /// role_type.is_deleted(transaction).await
+    #[cfg_attr(feature = "sync", doc = "role_type.is_deleted(transaction);")]
+    #[cfg_attr(not(feature = "sync"), doc = "role_type.is_deleted(transaction).await;")]
     /// ```
     #[cfg(not(feature = "sync"))]
     async fn is_deleted(&self, transaction: &Transaction<'_>) -> Result<bool>;
@@ -1185,7 +1205,8 @@ pub trait RoleTypeAPI: Clone + Into<RoleType> + Sync + Send {
     /// # Examples
     ///
     /// ```rust
-    /// role_type.get_relation_type(transaction).await
+    #[cfg_attr(feature = "sync", doc = "role_type.get_relation_type(transaction);")]
+    #[cfg_attr(not(feature = "sync"), doc = "role_type.get_relation_type(transaction).await;")]
     /// ```
     #[cfg(not(feature = "sync"))]
     async fn get_relation_type(&self, transaction: &Transaction<'_>) -> Result<Option<RelationType>>;
@@ -1214,7 +1235,8 @@ pub trait RoleTypeAPI: Clone + Into<RoleType> + Sync + Send {
     /// # Examples
     ///
     /// ```rust
-    /// role_type.set_label(transaction, new_label).await
+    #[cfg_attr(feature = "sync", doc = "role_type.set_label(transaction, new_label);")]
+    #[cfg_attr(not(feature = "sync"), doc = "role_type.set_label(transaction, new_label).await;")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     async fn set_label(&self, transaction: &Transaction<'_>, new_label: String) -> Result {
@@ -1230,7 +1252,8 @@ pub trait RoleTypeAPI: Clone + Into<RoleType> + Sync + Send {
     /// # Examples
     ///
     /// ```rust
-    /// role_type.get_supertype(transaction).await
+    #[cfg_attr(feature = "sync", doc = "role_type.get_supertype(transaction);")]
+    #[cfg_attr(not(feature = "sync"), doc = "role_type.get_supertype(transaction).await;")]
     /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     async fn get_supertype(&self, transaction: &Transaction<'_>) -> Result<RoleType> {
