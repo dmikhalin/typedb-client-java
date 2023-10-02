@@ -23,8 +23,11 @@ use typeql_lang::pattern::{Conjunction, ThingVariable};
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct Rule {
+    /// The unique label of the rule.
     pub label: String,
+    /// The statements that constitute the ‘when’ of the rule.
     pub when: Conjunction,
+    /// The single statement that constitutes the ‘then’ of the rule.
     pub then: ThingVariable,
 }
 
