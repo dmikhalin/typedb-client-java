@@ -50,7 +50,7 @@ public interface TypeDBTransaction extends AutoCloseable {
     Type type();
 
     /**
-     * The options for the session
+     * The options for the transaction
      */
     @CheckReturnValue
     TypeDBOptions options();

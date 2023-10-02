@@ -81,7 +81,7 @@ class TypeDBTransaction(ABC):
     @abstractmethod
     def options(self) -> TypeDBOptions:
         """
-        The options for the session
+        The options for the transaction
         """
         pass
 

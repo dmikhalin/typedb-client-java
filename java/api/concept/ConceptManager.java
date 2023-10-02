@@ -160,6 +160,8 @@ public interface ConceptManager {
      * <pre>
      * transaction.concepts().getEntity(iid);
      * </pre>
+     *
+     * @param iid The iid of the <code>Entity</code> to retrieve
      */
     @Nullable
     @CheckReturnValue
@@ -172,6 +174,8 @@ public interface ConceptManager {
      * <pre>
      * transaction.concepts().getRelation(iid);
      * </pre>
+     *
+     * @param iid The iid of the <code>Relation</code> to retrieve
      */
     @Nullable
     @CheckReturnValue
@@ -184,6 +188,8 @@ public interface ConceptManager {
      * <pre>
      * transaction.concepts().getAttribute(iid);
      * </pre>
+     *
+     * @param iid The iid of the <code>Attribute</code> to retrieve
      */
     @Nullable
     @CheckReturnValue
