@@ -28,6 +28,10 @@ import {Concept} from "../Concept";
 import {RequestBuilder} from "../../../common/rpc/RequestBuilder";
 import ValueType = Concept.ValueType;
 
+/**
+ * Attribute is an instance of the attribute type and has a value. This value is fixed and unique for every given instance of the attribute type.
+ * Attribute type can be uniquely addressed by its type and value.
+ */
 export interface Attribute extends Thing {
     readonly type: AttributeType;
 
@@ -35,6 +39,19 @@ export interface Attribute extends Thing {
 
     readonly value: boolean | number | string | Date;
 
+    /**
+     * Retrieves the instances that own this <code>Attribute</code>.
+     *
+     * ### Examples
+     *
+     * ```ts
+     * attribute.getOwners(transaction)
+     * attribute.getOwners(transaction, ownerType)
+     * ```
+     *
+     * @param transaction - The current transaction
+     * @param ownerType - If specified, filter results for only owners of the given type
+     */
     getOwners(transaction: TypeDBTransaction, ownerType?: ThingType): Stream<Thing>;
 }
 

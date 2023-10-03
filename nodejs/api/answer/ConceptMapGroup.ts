@@ -23,7 +23,25 @@ import {Concept} from "../concept/Concept";
 import {ConceptMap} from "./ConceptMap";
 
 export interface ConceptMapGroup {
+    /**
+     * Retrieves the concept that is the group owner.
+     *
+     * ### Examples
+     *
+     * ```ts
+     * conceptMapGroup.owner
+     * ```
+     */
     readonly owner: Concept;
 
+    /**
+     * Retrieves the ConceptMaps of the group.
+     *
+     * ### Examples
+     *
+     * ```ts
+     * conceptMapGroup.conceptMaps
+     * ```
+     */
     readonly conceptMaps: ConceptMap[];
 }
