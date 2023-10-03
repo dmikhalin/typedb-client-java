@@ -32,22 +32,63 @@ import {QueryManager} from "../query/QueryManager";
 import {TypeDBOptions} from "./TypeDBOptions";
 
 export interface TypeDBTransaction {
+    /**
+     * Checks whether this transaction is open.
+     *
+     * ### Examples
+     *
+     * ```ts
+     * transaction.isOpen()
+     * ```
+     */
     isOpen(): boolean;
 
+    /** The transaction’s type (READ or WRITE) */
     readonly type: TransactionType;
 
+    /** The options for the transaction. */
     readonly options: TypeDBOptions;
 
+    /** The <code>ConceptManager</code> for this transaction, providing access to all Concept API methods. */
     readonly concepts: ConceptManager;
 
+    /** The <code>LogicManager</code> for this Transaction, providing access to all Concept API - Logic methods. */
     readonly logic: LogicManager;
 
+    /** The<code></code>QueryManager<code></code> for this Transaction, from which any TypeQL query can be executed. */
     readonly query: QueryManager;
 
+    /**
+     * Commits the changes made via this transaction to the TypeDB database. Whether or not the transaction is commited successfully, it gets closed after the commit call.
+     *
+     * ### Examples
+     *
+     * ```ts
+     * transaction.commit()
+     * ```
+     */
     commit(): Promise<void>;
 
+    /**
+     * Rolls back the uncommitted changes made via this transaction.
+     *
+     * ### Examples
+     *
+     * ```ts
+     * transaction.rollback()
+     * ```
+     */
     rollback(): Promise<void>;
 
+    /**
+     * Closes the transaction.
+     *
+     * ### Examples
+     *
+     * ```ts
+     * transaction.close()
+     * ```
+     */
     close(): Promise<void>;
 }
 
@@ -59,6 +100,15 @@ export interface TransactionType {
     isWrite(): boolean;
 }
 
+/**
+ * This class is used to specify the type of transaction.
+ *
+ * ### Examples
+ *
+ * ```ts
+ * session.transaction(TransactionType.READ)
+ * ```
+ */
 export namespace TransactionType {
     class TransactionTypeImpl implements TransactionType {
         private readonly _type: TransactionTypeProto;
