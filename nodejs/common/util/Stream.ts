@@ -81,6 +81,7 @@ export abstract class Stream<T> implements AsyncIterable<T> {
     }
 }
 
+/** @ignore */
 export namespace Stream {
 
     export function iterable<T>(iterable: AsyncIterable<T>) {

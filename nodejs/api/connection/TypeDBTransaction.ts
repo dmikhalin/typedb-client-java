@@ -134,6 +134,7 @@ export namespace TransactionType {
     export const WRITE = new TransactionTypeImpl(TransactionTypeProto.WRITE);
 }
 
+/** @ignore */
 export namespace TypeDBTransaction {
     export interface Extended extends TypeDBTransaction {
         rpcExecute(request: TransactionReq, batch?: boolean): Promise<TransactionRes>;
