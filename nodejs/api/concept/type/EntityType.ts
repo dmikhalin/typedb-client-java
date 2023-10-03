@@ -30,6 +30,7 @@ import Transitivity = Concept.Transitivity;
 export interface EntityType extends ThingType {
     create(transaction: TypeDBTransaction): Promise<Entity>;
 
+    /** {@inheritDoc ThingType#getSupertype} */
     getSupertype(transaction: TypeDBTransaction): Promise<EntityType>;
     setSupertype(transaction: TypeDBTransaction, superEntityType: EntityType): Promise<void>;
 
