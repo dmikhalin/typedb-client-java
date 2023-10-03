@@ -21,7 +21,7 @@
 
 pub mod concept;
 pub mod logic;
-mod query;
+pub mod query;
 
 use std::{fmt, marker::PhantomData, sync::Arc};
 

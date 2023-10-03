@@ -42,7 +42,6 @@ impl QueryManager {
 
     /// Performs a TypeQL Define query with default options.
     /// See [`QueryManager::define_with_options`]
-    /// ```
     #[cfg_attr(feature = "sync", maybe_async::must_be_sync)]
     pub async fn define(&self, query: &str) -> Result {
         self.define_with_options(query, Options::new()).await
