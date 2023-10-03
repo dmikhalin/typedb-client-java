@@ -33,10 +33,19 @@ import ValueType = Concept.ValueType;
  * Attribute type can be uniquely addressed by its type and value.
  */
 export interface Attribute extends Thing {
+    /**
+     * The type which this <code>Attribute</code> belongs to.
+     */
     readonly type: AttributeType;
 
+     /**
+     * The type of the value which the <code>Attribute</code> instance holds.
+     */
     readonly valueType: ValueType;
 
+    /**
+     * The value which the <code>Attribute</code> instance holds.
+     */
     readonly value: boolean | number | string | Date;
 
     /**
