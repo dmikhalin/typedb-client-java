@@ -32,7 +32,7 @@ export interface NumericGroup {
      * ### Examples
      *
      * ```ts
-     * numericGroup.owner()
+     * numericGroup.owner
      * ```
      */
     readonly owner: Concept;
@@ -43,7 +43,7 @@ export interface NumericGroup {
      * ### Examples
      *
      * ```ts
-     * numericGroup.numeric()
+     * numericGroup.numeric
      * ```
      */
     readonly numeric: Numeric;

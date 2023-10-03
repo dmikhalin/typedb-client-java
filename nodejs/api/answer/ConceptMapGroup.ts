@@ -24,24 +24,12 @@ import {ConceptMap} from "./ConceptMap";
 
 export interface ConceptMapGroup {
     /**
-     * Retrieves the concept that is the group owner.
-     *
-     * ### Examples
-     *
-     * ```ts
-     * conceptMapGroup.owner
-     * ```
+     * The concept that is the group owner.
      */
     readonly owner: Concept;
 
     /**
-     * Retrieves the ConceptMaps of the group.
-     *
-     * ### Examples
-     *
-     * ```ts
-     * conceptMapGroup.conceptMaps
-     * ```
+     * The ConceptMaps of the group.
      */
     readonly conceptMaps: ConceptMap[];
 }

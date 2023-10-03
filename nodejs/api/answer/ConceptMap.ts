@@ -62,14 +62,8 @@ export interface ConceptMap {
     get(variable: string): Concept;
 
     /**
-     * Gets the <code>Explainables</code> object for this <code>ConceptMap</code>,
+     * The <code>Explainables</code> object for this <code>ConceptMap</code>,
      * exposing which of the concepts in this <code>ConceptMap</code> are explainable.
-     *
-     * ### Examples
-     *
-     * ```ts
-     * conceptMap.explainables
-     * ```
      */
     readonly explainables: ConceptMap.Explainables;
 
@@ -128,59 +122,29 @@ export namespace ConceptMap {
         ownership(owner: string, attribute: string): Explainable;
 
         /**
-         * Retrieves all of this <code>ConceptMap</code>’s explainable relations.
-         *
-         * ### Examples
-         *
-         * ```ts
-         * conceptMap.explainables.relations
-         * ```
+         * All of this <code>ConceptMap</code>’s explainable relations.
          */
         readonly relations: Map<string, Explainable>;
 
         /**
-         * Retrieves all of this <code>ConceptMap</code>’s explainable attributes.
-         *
-         * ### Examples
-         *
-         * ```ts
-         * conceptMap.explainables.attributes
-         * ```
+         * All of this <code>ConceptMap</code>’s explainable attributes.
          */
         readonly attributes: Map<string, Explainable>;
 
         /**
-         * Retrieves all of this <code>ConceptMap</code>’s explainable ownerships.
-         *
-         * ### Examples
-         *
-         * ```ts
-         * conceptMap.explainables.ownerships
-         * ```
+         * All of this <code>ConceptMap</code>’s explainable ownerships.
          */
         readonly ownerships: Map<[string, string], Explainable>;
     }
 
     export interface Explainable {
         /**
-         * Retrieves the subquery of the original query that is actually being explained.
-         *
-         * ### Examples
-         *
-         * ```ts
-         * explainable.conjunction
-         * ```
+         * The subquery of the original query that is actually being explained.
          */
         readonly conjunction: string;
 
         /**
-         * Retrieves the unique ID that identifies this <code>Explainable</code>.
-         *
-         * ### Examples
-         *
-         * ```ts
-         * explainable.id
-         * ```
+         * A unique ID that identifies this <code>Explainable</code>.
          */
         readonly id: number;
     }
