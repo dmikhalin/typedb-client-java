@@ -90,7 +90,7 @@ export abstract class Stream<T> implements AsyncIterable<T> {
 
     /**
      * Returns a new stream from this stream consisting only of elements which satisfy a given condition.
-     * @param filter: The condition to evaluate.
+     * @param filter - The condition to evaluate.
      * ### Examples
      *
      * ```ts
@@ -103,7 +103,7 @@ export abstract class Stream<T> implements AsyncIterable<T> {
     }
 
     /**
-     * @param mapper: The mapping function to apply.
+     * @param mapper - The mapping function to apply.
      * Returns a new stream from this stream by applying the <code>mapper</code> function to each element.
      */
     map<U>(mapper: (value: T) => U): Stream<U> {
@@ -114,7 +114,7 @@ export abstract class Stream<T> implements AsyncIterable<T> {
      * Given a function which accepts a single element of this stream and returns a new stream,
      * This function returns a new stream obtained by applying the function to each element in the stream,
      * and concatenating each result thus obtained
-     * @param mapper: The mapping function to apply. Must return a stream.
+     * @param mapper - The mapping function to apply. Must return a stream.
      */
     flatMap<U>(mapper: (value: T) => Stream<U>): Stream<U> {
         return new Stream.FlatMapped<T, U, Stream<U>>(this, mapper);
@@ -122,7 +122,7 @@ export abstract class Stream<T> implements AsyncIterable<T> {
 
     /**
      * Executes the given function for each element in the stream.
-     * @param fn: The function to evaluate for each element.
+     * @param fn - The function to evaluate for each element.
      */
     async forEach(fn: (value: T) => void): Promise<void> {
         for await (const val of this) {

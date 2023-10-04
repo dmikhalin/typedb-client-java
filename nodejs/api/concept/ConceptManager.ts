@@ -33,6 +33,15 @@ import {TypeDBDriverError} from "../../common/errors/TypeDBDriverError";
  * Provides access for all Concept API methods.
  */
 export interface ConceptManager {
+    /**
+     * Retrieves the root <code>ThingType</code>, “thing”.
+     *
+     * ### Examples
+     *
+     * ```ts
+     * transaction.concepts().getRootThingType()
+     * ```
+     */
     getRootThingType(): Promise<ThingType>;
 
     /**

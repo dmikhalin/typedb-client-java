@@ -84,16 +84,19 @@ export interface Thing extends Concept {
     getHas(transaction: TypeDBTransaction, attributeTypes: AttributeType[]): Stream<Attribute>;
 
     /**
-     * Retrieves all the <code>Relations</code> which this <code>Thing</code> plays a role in, optionally filtered by one or more given roles.
+     * Retrieves the <code>Attribute</code>s that this <code>Thing</code> owns. Optionally, filtered by an <code>AttributeType</code> or a list of <code>AttributeType</code>s. Optionally, filtered by <code>Annotation</code>s.
      *
      * ### Examples
      *
      * ```ts
-     * thing.getRelations(transaction, roleTypes)
+     * thing.getHas(transaction)
+     * thing.getHas(transaction, attributeType, [Annotation.KEY])
      * ```
      *
      * @param transaction - The current transaction
-     * @param roleTypes - The list of roles to filter the relations by.
+     * @param attributeType - The <code>AttributeType</code> to filter the attributes by
+     * @param attributeTypes - The <code>AttributeType</code>s to filter the attributes by
+     * @param annotations - Only retrieve attributes with all given <code>Annotation</code>s
      */
     getHas(transaction: TypeDBTransaction, attributeTypes: AttributeType[], annotations: Annotation[]): Stream<Attribute>;
 

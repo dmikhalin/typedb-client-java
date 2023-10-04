@@ -118,6 +118,8 @@ export namespace SessionType {
         }
     }
 
+    /** Constant used to specify a DATA session must be created  */
     export const DATA = new SessionTypeImpl(SessionTypeProto.DATA);
+    /** Constant used to specify a SCHEMA session must be created  */
     export const SCHEMA = new SessionTypeImpl(SessionTypeProto.SCHEMA);
 }

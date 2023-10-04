@@ -33,7 +33,8 @@ import ValueType = Concept.ValueType;
 /**
  * Attribute types represent properties that other types can own.
  * Attribute types have a value type. This value type is fixed and unique for every given instance of the attribute type.
- * Other types can own an attribute type. That means that instances of these other types can own an instance of this attribute type. This usually means that an object in our domain has a property with the matching value.
+ * Other types can own an attribute type. That means that instances of these other types can own an instance of this attribute type.
+ * This usually means that an object in our domain has a property with the matching value.
  * Multiple types can own the same attribute type, and different instances of the same type or different types can share ownership of the same attribute instance.
  */
 export interface AttributeType extends ThingType {
@@ -56,19 +57,21 @@ export interface AttributeType extends ThingType {
      */
     put(transaction: TypeDBTransaction, value: Value): Promise<Attribute>;
 
-    /** See: {@link put} */
+    /** {@inheritDoc AttributeType#put} */
     putBoolean(transaction: TypeDBTransaction, value: boolean): Promise<Attribute>;
-    /** See: {@link put} */
+    /** {@inheritDoc AttributeType#put} */
     putLong(transaction: TypeDBTransaction, value: number): Promise<Attribute>;
-    /** See: {@link put} */
+    /** {@inheritDoc AttributeType#put} */
     putDouble(transaction: TypeDBTransaction, value: number): Promise<Attribute>;
-    /** See: {@link put} */
+    /** {@inheritDoc AttributeType#put} */
     putString(transaction: TypeDBTransaction, value: string): Promise<Attribute>;
-    /** See: {@link put} */
+    /** {@inheritDoc AttributeType#put} */
     putDateTime(transaction: TypeDBTransaction, value: Date): Promise<Attribute>;
 
     /**
-     * Retrieves an <code>Attribute</code> of this <code>AttributeType</code> with the given value if such <code>Attribute</code> exists. Otherwise, returns <code>None</code>.
+     * Retrieves an <code>Attribute</code> of this <code>AttributeType</code>
+     * with the given value if such <code>Attribute</code> exists.
+     * Otherwise, returns <code>None</code>.
      *
      * ### Examples
      *
@@ -80,15 +83,15 @@ export interface AttributeType extends ThingType {
      * @param value - <code>Attribute</code>’s value
      */
     get(transaction: TypeDBTransaction, value: Value): Promise<Attribute>;
-    /** See {@link get} */
+    /** {@inheritDoc AttributeType#get} */
     getBoolean(transaction: TypeDBTransaction, value: boolean): Promise<Attribute>;
-    /** See {@link get} */
+    /** {@inheritDoc AttributeType#get} */
     getLong(transaction: TypeDBTransaction, value: number): Promise<Attribute>;
-    /** See {@link get} */
+    /** {@inheritDoc AttributeType#get} */
     getDouble(transaction: TypeDBTransaction, value: number): Promise<Attribute>;
-    /** See {@link get} */
+    /** {@inheritDoc AttributeType#get} */
     getString(transaction: TypeDBTransaction, value: string): Promise<Attribute>;
-    /** See {@link get} */
+    /** {@inheritDoc AttributeType#get} */
     getDateTime(transaction: TypeDBTransaction, value: Date): Promise<Attribute>;
 
     /** @inheritdoc */
@@ -108,7 +111,8 @@ export interface AttributeType extends ThingType {
     getSubtypes(transaction: TypeDBTransaction, valueType: ValueType, transitivity: Transitivity): Stream<AttributeType>;
 
     /**
-     * Retrieves all direct and indirect (or direct only) <code>Attributes</code> that are instances of this <code>AttributeType</code>.
+     * Retrieves all direct and indirect (or direct only) <code>Attributes</code>
+     * that are instances of this <code>AttributeType</code>.
      *
      * ### Examples
      *
@@ -124,7 +128,8 @@ export interface AttributeType extends ThingType {
     getInstances(transaction: TypeDBTransaction): Stream<Attribute>;
 
     /**
-     * Retrieve all <code>Things</code> that own an attribute of this <code>AttributeType</code>. Optionally, filtered by <code>Annotation</code>s.
+     * Retrieve all <code>Things</code> that own an attribute of this <code>AttributeType</code>.
+     * Optionally, filtered by <code>Annotation</code>s.
      *
      * ### Examples
      *

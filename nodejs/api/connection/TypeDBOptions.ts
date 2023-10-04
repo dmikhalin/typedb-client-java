@@ -24,6 +24,7 @@ import {ErrorMessage} from "../../common/errors/ErrorMessage";
 import {TypeDBDriverError} from "../../common/errors/TypeDBDriverError";
 import NEGATIVE_VALUE_NOT_ALLOWED = ErrorMessage.Driver.NEGATIVE_VALUE_NOT_ALLOWED;
 
+/** Interface for TypeDBOptions. Use {@link TypeDBOptions} instead. */
 export interface Opts {
     /** If set to <code>True</code>, enables inference for queries. Only settable at transaction level and above. Only affects read transactions.*/
     infer?: boolean;

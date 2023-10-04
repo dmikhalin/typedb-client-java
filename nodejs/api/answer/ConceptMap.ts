@@ -23,7 +23,6 @@ import {Concept} from "../concept/Concept";
 
 /**
  * Contains a mapping of variables to concepts.
- *
  */
 export interface ConceptMap {
     /**
@@ -80,6 +79,9 @@ export interface ConceptMap {
 }
 
 export namespace ConceptMap {
+    /**
+     * Contains explainable objects.
+     */
     export interface Explainables {
         /**
          * Retrieves the explainable relation with the given variable name.
@@ -137,6 +139,9 @@ export namespace ConceptMap {
         readonly ownerships: Map<[string, string], Explainable>;
     }
 
+    /**
+     * Contains an explainable object.
+     */
     export interface Explainable {
         /**
          * The subquery of the original query that is actually being explained.

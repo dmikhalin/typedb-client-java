@@ -319,11 +319,15 @@ export namespace ThingType {
 
         private readonly name: string;
 
+        /** @ignore */
         private constructor(name: string) {
             this.name = name;
         }
 
-        /** Returns the relevant <code>Annotation</code> given the name as a string */
+        /**
+        * Returns the relevant <code>Annotation</code> given the name as a string
+        * @param string - name of the attribute as a string. e.g.: "key", "unique"
+        */
         public static parse(string: string): Annotation {
             if (string == Annotation.KEY.name) return Annotation.KEY;
             else if (string == Annotation.UNIQUE.name) return Annotation.KEY;

@@ -138,6 +138,15 @@ export interface Concept {
      */
     isAttribute(): boolean;
 
+    /**
+     * Checks if the concept is a <code>Value</code>.
+     *
+     * ### Examples
+     *
+     * ```ts
+     * concept.isValue()
+     * ```
+     */
     isValue(): boolean;
 
     /**
@@ -256,6 +265,10 @@ export interface Concept {
      */
     asValue(): Value;
 
+    /**
+    * Checks if this concept is equal to the argument <code>concept</code>.
+    * @param concept - The concept to compare to.
+    */
     equals(concept: Concept): boolean;
 
     /**
@@ -267,7 +280,6 @@ export interface Concept {
      * concept.toJSONRecord()
      * ```
      */
-
     toJSONRecord(): Record<string, boolean | string | number>;
 }
 
@@ -294,6 +306,7 @@ export namespace Concept {
         }
     }
 
+    /** TypeQL value types for attributes & value concepts. */
     export namespace ValueType {
         export const OBJECT = new ValueType(ValueTypeProto.OBJECT, "OBJECT");
         export const BOOLEAN = new ValueType(ValueTypeProto.BOOLEAN, "BOOLEAN");
