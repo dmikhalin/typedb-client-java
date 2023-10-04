@@ -92,14 +92,6 @@ export interface TypeDBTransaction {
     close(): Promise<void>;
 }
 
-export interface TransactionType {
-    proto(): TransactionTypeProto;
-
-    isRead(): boolean;
-
-    isWrite(): boolean;
-}
-
 /**
  * This class is used to specify the type of transaction.
  *
@@ -109,6 +101,16 @@ export interface TransactionType {
  * session.transaction(TransactionType.READ)
  * ```
  */
+export interface TransactionType {
+    proto(): TransactionTypeProto;
+
+    /** Checks whether this is the READ TransactionType  */
+    isRead(): boolean;
+
+    /** Checks whether this is the WRITE TransactionType  */
+    isWrite(): boolean;
+}
+
 export namespace TransactionType {
     class TransactionTypeImpl implements TransactionType {
         private readonly _type: TransactionTypeProto;
@@ -130,7 +132,9 @@ export namespace TransactionType {
         }
     }
 
+    /** Constant used to specify a READ transaction must be created  */
     export const READ = new TransactionTypeImpl(TransactionTypeProto.READ);
+    /** Constant used to specify a WRITE transaction must be created  */
     export const WRITE = new TransactionTypeImpl(TransactionTypeProto.WRITE);
 }
 

@@ -310,8 +310,11 @@ export namespace ThingType {
         else throw new TypeDBDriverError(ILLEGAL_STATE.message());
     }
 
+    /** Annotations for ownership declarations. */
     export class Annotation {
+        /** Annotation to specify the attribute owned is a KEY */
         public static KEY = new Annotation("key");
+        /** Annotation to specify the owned is UNIQUE */
         public static UNIQUE = new Annotation("unique");
 
         private readonly name: string;
@@ -320,12 +323,14 @@ export namespace ThingType {
             this.name = name;
         }
 
+        /** Returns the relevant <code>Annotation</code> given the name as a string */
         public static parse(string: string): Annotation {
             if (string == Annotation.KEY.name) return Annotation.KEY;
             else if (string == Annotation.UNIQUE.name) return Annotation.KEY;
             else throw new TypeDBDriverError(BAD_ANNOTATION.message(string));
         }
 
+        /** Printable string */
         public toString(): string {
             return "[annotation: " + this.name + "]";
         }
