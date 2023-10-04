@@ -21,7 +21,8 @@
 
 /**
   * A <code>Label</code> holds the uniquely identifying name of a type.
-  * It consists of an optional 'scope', and a 'name'. The string representation is - "[scope:]name".
+  *
+  * It consists of an optional 'scope', and a 'name', represented "scope:name".
   * The scope is used only used to distinguish between role-types of the same name declared in different relation types.
   */
 export class Label {
@@ -34,12 +35,12 @@ export class Label {
         this._name = label;
     }
 
-    /** Returns the (possibly null) scope part of the label */
+    /** Returns the (possibly null) scope part of the label. */
     get scope(): string {
         return this._scope;
     }
 
-    /** Returns the name part of the label */
+    /** Returns the name part of the label. */
     get name(): string {
         return this._name;
     }
